@@ -1,13 +1,17 @@
-﻿using DefaultNamespace;
-using UnityEditor;
+﻿using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CircleOverlap : MonoBehaviour
 {
+    private readonly Collider[] _interactionResult = new Collider[10];
+    
     [SerializeField] private Transform _interactPoint;
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _mask;
-    private readonly Collider[] _interactionResult = new Collider[10];
+    [SerializeField] private string[] _tags;
+    [SerializeField] private OnOverlapEvent _onOverlap;
 
     private void OnDrawGizmosSelected()
     {
@@ -25,10 +29,13 @@ public class CircleOverlap : MonoBehaviour
         {
             var overlapResult = _interactionResult[i];
 
-            if (overlapResult.gameObject.TryGetComponent(out BugContainer bugContainer))
-            {
-                bugContainer.TakeDamage();
-            }
+            var isInTags = _tags.Any(tag => overlapResult.CompareTag(tag));
+            if (isInTags) _onOverlap?.Invoke(_interactionResult[i].gameObject);
         }
+    }
+
+    [Serializable]
+    public class OnOverlapEvent : UnityEvent<GameObject>
+    {
     }
 }

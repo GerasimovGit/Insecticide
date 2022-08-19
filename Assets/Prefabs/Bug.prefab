@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 884244685013603955}
   - component: {fileID: 884244685013603954}
   - component: {fileID: 884244685013603952}
+  - component: {fileID: 9194040323846654052}
   m_Layer: 7
   m_Name: Bug
   m_TagString: Enemy
@@ -127,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884244685013603945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31762218, y: 0.2641794, z: -3.4249954}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad76998d63a1407b948b4119a2456d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 30
+  _rotationSpeed: 0
 --- !u!114 &884244685013603954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +246,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9194040323846654052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884244685013603945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f644d75bbbb4fb8b78762e72052aeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &884244685041437320
 GameObject:
   m_ObjectHideFlags: 0

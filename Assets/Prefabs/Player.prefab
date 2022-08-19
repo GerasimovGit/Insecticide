@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 457368202239158773}
   - component: {fileID: 457368202239158772}
   - component: {fileID: 457368202239158730}
-  m_Layer: 0
+  - component: {fileID: 228671551}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +147,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88a3933743113049bb24490836678b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &228671551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457368202239158771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1ed6b6c6374e53bd42007a42322ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 1625485176}
+  _circleOverlap: {fileID: 1625485180}
+  _shootCooldown: 1
 --- !u!1 &457368202587386618
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +174,9 @@ GameObject:
   - component: {fileID: 457368202587386622}
   - component: {fileID: 457368202587386621}
   - component: {fileID: 457368202587386620}
-  m_Layer: 0
+  - component: {fileID: 1625485176}
+  - component: {fileID: 1625485180}
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,6 +261,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1625485176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457368202587386618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4acf5d4853f47be8a0d2a42503bd5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resource: 1000
+  _damage: 10
+  _resourceLoseSpeed: 1
+--- !u!114 &1625485180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457368202587386618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a102a42acc4d0b82fd473a8e381e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactPoint: {fileID: 2141737280003601250}
+  _radius: 0.97
+  _mask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &4151796658089454208
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,10 +302,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141737280003601250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -267,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4151796658089454208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.312, y: 0, z: 1.289}
+  m_LocalPosition: {x: -0.312, y: -0.22, z: 1.289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
