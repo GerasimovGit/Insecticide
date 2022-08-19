@@ -30,7 +30,9 @@ public class CircleOverlap : MonoBehaviour
             var overlapResult = _interactionResult[i];
 
             var isInTags = _tags.Any(tag => overlapResult.CompareTag(tag));
-            if (isInTags) _onOverlap?.Invoke(_interactionResult[i].gameObject);
+            
+            if (isInTags) 
+                _onOverlap?.Invoke(_interactionResult[i].gameObject);
         }
     }
 

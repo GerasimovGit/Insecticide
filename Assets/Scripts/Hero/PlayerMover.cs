@@ -8,14 +8,12 @@ namespace Hero
     {
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float _movementSpeed;
-
+        
+        private Animator _animator;
         private Camera _camera;
         private PlayerInput _playerInput;
-
-
-        private Animator _animator;
-
-        private bool _isMoving;
+        
+        private bool _isMoving => _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
 
         private void Awake()
         {
@@ -31,17 +29,14 @@ namespace Hero
         private void Update()
         {
             Move();
-            _isMoving = _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
-            _animator.SetBool("isMoving",_isMoving);
+            _animator.SetBool("isMoving", _isMoving);
         }
 
         private void Move()
         {
             Vector3 movementVector = Vector3.zero;
 
-            bool isMoving = _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
-
-            if (isMoving)
+            if (_isMoving)
             {
                 movementVector = _camera.transform.TransformDirection(_playerInput.Axis);
                 movementVector.y = 0;

@@ -1,35 +1,79 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Enemies
 {
+    [RequireComponent(typeof(Enemy))]
     public class EnemyMover : MonoBehaviour
     {
         [SerializeField] private Transform _path;
         [SerializeField] private float _speed;
         [SerializeField] private float _rotationSpeed;
+        [SerializeField] private float _dieRotationSpeed;
 
         private int _currentPoint;
+        private bool _isDead;
+        private Enemy _enemy;
         private Vector3 _direction;
-        private Transform[] _points;
         private Quaternion _rotation;
+        private Transform[] _points;
 
         private bool _isMoving => _direction.magnitude > Constants.Epsilon;
 
         private void Awake()
         {
+            _enemy = GetComponent<Enemy>();
             SetPoints();
         }
 
         private void Start()
         {
-            _currentPoint = Random.Range(0, _points.Length);
+            _currentPoint = GetRandomPoint();
         }
 
         private void FixedUpdate()
         {
+            if (_isDead) return;
             DoPatrol(out Vector3 direction);
             SetDirection(direction);
             RotateToDirection();
+        }
+
+        private void OnEnable()
+        {
+            _enemy.Died += OnDie;
+        }
+
+        private void OnDisable()
+        {
+            _enemy.Died -= OnDie;
+        }
+
+        private void OnDie()
+        {
+            _isDead = true;
+            StartCoroutine(RotateOnDie());
+        }
+
+        private IEnumerator RotateOnDie()
+        {
+            Quaternion startRotation = transform.rotation;
+            Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 0, 180);
+            float timeElapsed = 0;
+
+            while (timeElapsed < _dieRotationSpeed)
+            {
+                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / _dieRotationSpeed);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.rotation = targetRotation;
+        }
+
+        private int GetRandomPoint()
+        {
+            return Random.Range(0, _points.Length);
         }
 
         private void SetPoints()
@@ -50,7 +94,7 @@ namespace Enemies
 
             if (transform.position == target.position)
             {
-                int point = Random.Range(0, _points.Length);
+                int point = GetRandomPoint();
                 _currentPoint = point;
             }
         }

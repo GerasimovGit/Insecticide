@@ -16,13 +16,13 @@ namespace Hero
             TrySoot();
         }
 
-        public void TrySoot()
+        private void TrySoot()
         {
             if (_weapon.IsOutOfResource) return;
             
             if (_nextShootAttackTime > Time.time) return;
+            
             _nextShootAttackTime = Time.time + _shootCooldown;
-
             _circleOverlap.Check();
             _weapon.Fire();
         }
