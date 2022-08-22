@@ -1,5 +1,6 @@
 using GameInput;
 using UnityEngine;
+using Weapons;
 
 namespace Hero
 {
@@ -8,15 +9,17 @@ namespace Hero
     {
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private float _movementSpeed;
+        [SerializeField] private Weapon _weapon;
         
         private Animator _animator;
         private Camera _camera;
         private PlayerInput _playerInput;
-        
+
         private bool _isMoving => _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
 
         private void Awake()
         {
+
             _playerInput = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
         }
@@ -45,6 +48,11 @@ namespace Hero
             }
 
             movementVector += Physics.gravity;
+
+            if (_weapon.IsOutOfResource)
+            {
+                _characterController.Move(_movementSpeed * 1.25f * movementVector * Time.deltaTime);
+            }
 
             _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Weapons;
 
 namespace Hero
@@ -18,13 +19,21 @@ namespace Hero
 
         private void TrySoot()
         {
-            if (_weapon.IsOutOfResource) return;
-            
+            if (_weapon.IsOutOfResource)
+            {
+                return;
+            }
+
             if (_nextShootAttackTime > Time.time) return;
             
             _nextShootAttackTime = Time.time + _shootCooldown;
             _circleOverlap.Check();
             _weapon.Fire();
+        }
+
+        public void AddResource()
+        {
+            _weapon.AddResource();
         }
     }
 }

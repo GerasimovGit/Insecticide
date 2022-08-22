@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Weapons
 {
@@ -7,11 +8,25 @@ namespace Weapons
         [SerializeField] private float _resource;
         [SerializeField] private float _resourceLoseSpeed;
 
-        public bool IsOutOfResource => _resource < 0;
+        private float _maxResourceValue = 10;
+
+        public event Action ResourceEnded;
+        
+        public bool IsOutOfResource => _resource <= 0;
 
         public void Fire()
         {
             _resource -= _resourceLoseSpeed * Time.deltaTime;
+
+            if (IsOutOfResource)
+            {
+                ResourceEnded?.Invoke();
+            }
+        }
+
+        public void AddResource()
+        {
+            _resource = _maxResourceValue;
         }
     }
 }
