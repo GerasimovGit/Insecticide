@@ -2,18 +2,15 @@
 using Hero;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class EmptyBagArea : MonoBehaviour
 {
-    public class EmptyBagArea : MonoBehaviour
+    public event Action ResourceAdded;
+    private void OnTriggerStay(Collider other)
     {
-        public event Action Triggered;
-        private void OnTriggerStay(Collider other)
+        if (other.gameObject.TryGetComponent(out Player player))
         {
-            if (other.gameObject.TryGetComponent(out Player player))
-            {
-                Triggered?.Invoke();
-                player.AddResource();
-            }
+            player.AddResource();
+            ResourceAdded?.Invoke();
         }
     }
 }
