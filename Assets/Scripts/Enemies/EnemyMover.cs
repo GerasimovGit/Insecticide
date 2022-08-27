@@ -12,11 +12,11 @@ namespace Enemies
         [SerializeField] private float _dieRotationSpeed;
 
         private int _currentPoint;
-        private bool _isDead;
-        private Enemy _enemy;
         private Vector3 _direction;
-        private Quaternion _rotation;
+        private Enemy _enemy;
+        private bool _isDead;
         private Transform[] _points;
+        private Quaternion _rotation;
 
         private bool _isMoving => _direction.magnitude > Constants.Epsilon;
 
@@ -58,17 +58,23 @@ namespace Enemies
         private IEnumerator RotateOnDie()
         {
             Quaternion startRotation = transform.rotation;
+            Vector3 startPosition = transform.position;
             Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 0, 180);
+
+            Vector3 targetPosition =
+                new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
             float timeElapsed = 0;
 
             while (timeElapsed < _dieRotationSpeed)
             {
                 transform.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / _dieRotationSpeed);
+                transform.position = Vector3.Slerp(startPosition, targetPosition, timeElapsed / _dieRotationSpeed);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }
 
             transform.rotation = targetRotation;
+            transform.position = targetPosition;
         }
 
         private int GetRandomPoint()

@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _path: {fileID: 0}
-  _speed: 1
-  _rotationSpeed: 2
+  _speed: 0.7
+  _rotationSpeed: 10
   _dieRotationSpeed: 1
 --- !u!114 &7513719363196178100
 MonoBehaviour:
