@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass
+  m_Name: Durt
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
@@ -106,7 +106,7 @@ Material:
     - _QueueOffset: 0
     - _RimEnabled: 0
     - _SelfShadingSize: 0.5
-    - _SelfShadingSizeExtra: 0.509
+    - _SelfShadingSizeExtra: 0.629
     - _ShadowEdgeSize: 0.05
     - _ShadowEdgeSizeExtra: 0.425
     - _SmoothnessTextureChannel: 0
@@ -123,10 +123,10 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.17909555, g: 0.49056602, b: 0, a: 1}
+    - _Color: {r: 0.40784317, g: 0.22352943, b: 0.058823533, a: 1}
     - _ColorDim: {r: 0.044830296, g: 0.9056604, b: 0.012815925, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorDimExtra: {r: 0.43419927, g: 0.4716981, b: 0.19312923, a: 1}
+    - _ColorDimExtra: {r: 0.16981131, g: 0.08013567, b: 0, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorGradient: {r: 0.17909555, g: 0.49056602, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
