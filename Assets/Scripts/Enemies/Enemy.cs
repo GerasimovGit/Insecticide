@@ -14,7 +14,7 @@ namespace Enemies
         public event Action Died;
 
         public void TakeDamage()
-        {
+        { 
             DamageTaken?.Invoke();
         }
 
@@ -23,16 +23,16 @@ namespace Enemies
             StartCoroutine(FadeIn());
             Died?.Invoke();
         }
-        
+
         private IEnumerator FadeIn()
         {
             Color color = _object.material.color;
-            Color targetColor = new Color(0.3f,0.1f,color.b);
+            Color targetColor = new Color(0.3f, 0.1f, color.b);
             float timeElapsed = 0;
-        
+
             while (timeElapsed < _fadeInSpeed)
             {
-                _object.material.color = Color.Lerp(_object.material.color, targetColor, timeElapsed/ _fadeInSpeed);
+                _object.material.color = Color.Lerp(_object.material.color, targetColor, timeElapsed / _fadeInSpeed);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }
