@@ -10,7 +10,7 @@ public class DirectionalIndicator : MonoBehaviour
     private static readonly int IsOutOfResource = Animator.StringToHash("IsOutOfResource");
 
     [SerializeField] private Transform _target;
-    [SerializeField] private Player _player;
+    //[SerializeField] private Player _player;
     [SerializeField] private Weapon _weapon;
 
     private Animator _animator;

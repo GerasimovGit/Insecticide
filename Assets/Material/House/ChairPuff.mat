@@ -139,7 +139,7 @@ Material:
     - _RimEnabled: 0
     - _Saturation: 0
     - _SelfShadingSize: 0.556
-    - _SelfShadingSizeExtra: 0.771
+    - _SelfShadingSizeExtra: 0.677
     - _ShadowEdgeSize: 0.5
     - _ShadowEdgeSizeExtra: 0.139
     - _SmoothnessTextureChannel: 0
