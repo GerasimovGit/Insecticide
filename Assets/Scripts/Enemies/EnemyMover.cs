@@ -8,7 +8,7 @@ namespace Enemies
     {
         [SerializeField] private Transform _path;
         [SerializeField] private float _speed;
-        [SerializeField] private float _rotationSpeed;
+        //[SerializeField] private float _rotationSpeed;
         [SerializeField] private float _dieRotationSpeed;
 
         private int _currentPoint;
@@ -115,7 +115,8 @@ namespace Enemies
             if (!_isMoving) return;
 
             _rotation = Quaternion.LookRotation(_direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, _rotation, Time.deltaTime * _rotationSpeed);
+           // transform.rotation = Quaternion.Slerp(transform.rotation, _rotation, Time.deltaTime * _rotationSpeed);
+           transform.rotation = _rotation;
         }
     }
 }

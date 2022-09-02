@@ -51,7 +51,7 @@ namespace Hero
 
             if (_weapon.IsOutOfResource)
             {
-                _characterController.Move(_movementSpeed * 1.25f * movementVector * Time.deltaTime);
+                _characterController.Move(_movementSpeed * 0.5f * movementVector * Time.deltaTime);
             }
 
             _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);

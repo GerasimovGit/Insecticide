@@ -27,7 +27,7 @@ namespace Enemies
         private IEnumerator FadeIn()
         {
             Color color = _object.material.color;
-            Color targetColor = new Color(0.3f, 0.1f, color.b);
+            Color targetColor = new Color( 0.3f, 0.1f, 0f);
             float timeElapsed = 0;
 
             while (timeElapsed < _fadeInSpeed)
