@@ -43,7 +43,7 @@ namespace Hero
             {
                 movementVector = _camera.transform.TransformDirection(_playerInput.Axis);
                 movementVector.y = 0;
-                //movementVector.Normalize();
+                movementVector.Normalize();
                 transform.forward = movementVector;
             }
 

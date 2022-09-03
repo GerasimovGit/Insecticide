@@ -131,7 +131,7 @@ Material:
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
     - _SelfShadingSize: 0.825
-    - _SelfShadingSizeExtra: 0.633
+    - _SelfShadingSizeExtra: 0.646
     - _ShadowEdgeSize: 0.211
     - _ShadowEdgeSizeExtra: 0.5
     - _ShadowEdgeSmoothness: 0.156

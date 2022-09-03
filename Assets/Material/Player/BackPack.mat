@@ -108,9 +108,9 @@ Material:
     - _QueueOffset: 0
     - _RimEnabled: 0
     - _SelfShadingSize: 0.629
-    - _SelfShadingSizeExtra: 0.484
+    - _SelfShadingSizeExtra: 0.437
     - _ShadowEdgeSize: 0.304
-    - _ShadowEdgeSizeExtra: 0.167
+    - _ShadowEdgeSizeExtra: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
     - _SpecularHighlights: 1

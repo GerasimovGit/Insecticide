@@ -106,9 +106,9 @@ Material:
     - _QueueOffset: 0
     - _RimEnabled: 0
     - _SelfShadingSize: 0.5
-    - _SelfShadingSizeExtra: 0.509
+    - _SelfShadingSizeExtra: 0.64
     - _ShadowEdgeSize: 0.05
-    - _ShadowEdgeSizeExtra: 0.425
+    - _ShadowEdgeSizeExtra: 0.34
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
     - _SpecularHighlights: 1
@@ -126,7 +126,7 @@ Material:
     - _Color: {r: 0.17909555, g: 0.49056602, b: 0, a: 1}
     - _ColorDim: {r: 0.044830296, g: 0.9056604, b: 0.012815925, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorDimExtra: {r: 0.43419927, g: 0.4716981, b: 0.19312923, a: 1}
+    - _ColorDimExtra: {r: 0.21488352, g: 0.3773585, b: 0.1972232, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorGradient: {r: 0.17909555, g: 0.49056602, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
