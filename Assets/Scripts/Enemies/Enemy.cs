@@ -9,12 +9,12 @@ namespace Enemies
     {
         [SerializeField] private Renderer _object;
         [SerializeField] private float _fadeInSpeed;
-        
+
         public event Action DamageTaken;
         public event Action Died;
 
         public void TakeDamage()
-        { 
+        {
             DamageTaken?.Invoke();
         }
 
@@ -26,8 +26,7 @@ namespace Enemies
 
         private IEnumerator FadeIn()
         {
-            Color color = _object.material.color;
-            Color targetColor = new Color( 0.3f, 0.1f, 0f);
+            Color targetColor = new Color(0.3f, 0.1f, 0f);
             float timeElapsed = 0;
 
             while (timeElapsed < _fadeInSpeed)

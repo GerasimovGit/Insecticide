@@ -391,21 +391,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Emoji
       objectReference: {fileID: 0}
+    - target: {fileID: 4348862302024348332, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7605397780976005786, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7605397780976005786, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18
+      value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: 7605397780976005786, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.29
+      value: 0.78812313
       objectReference: {fileID: 0}
     - target: {fileID: 7605397780976005786, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.31
+      value: -4.366
       objectReference: {fileID: 0}
     - target: {fileID: 7605397780976005786, guid: 86f7be83298382c4e9ec39c33a9641fe, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 using Weapons;
 
@@ -9,26 +9,41 @@ namespace Hero
         [SerializeField] private Weapon _weapon;
         [SerializeField] private CircleOverlap _circleOverlap;
         [SerializeField] private float _shootCooldown;
+        [SerializeField] private ParticleSystem[] _shootParticles;
 
         private float _nextShootAttackTime;
+        private WaitForSeconds _waitForSeconds;
 
-        private void Update()
+        public void TrySoot()
         {
-            TrySoot();
-        }
+            _waitForSeconds = new WaitForSeconds(_shootCooldown);
 
-        private void TrySoot()
-        {
             if (_weapon.IsOutOfResource)
             {
+                foreach (var particle in _shootParticles)
+                {
+                    particle.Stop();
+                }
+
                 return;
             }
 
-            if (_nextShootAttackTime > Time.time) return;
+            StartCoroutine(Shoot());
+        }
+
+        private IEnumerator Shoot()
+        {
+            foreach (var particle in _shootParticles)
+            {
+                particle.Play();
+            }
             
-            _nextShootAttackTime = Time.time + _shootCooldown;
-            _circleOverlap.Check();
-            _weapon.Fire();
+            while (_weapon.IsOutOfResource == false)
+            {
+                _circleOverlap.Check();
+                _weapon.Fire();
+                yield return _waitForSeconds;
+            }
         }
 
         public void AddResource()

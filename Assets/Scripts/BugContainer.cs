@@ -36,6 +36,10 @@ public class BugContainer : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         
+        foreach (var enemy in _enemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
         _clouds.Play();
         
     }
