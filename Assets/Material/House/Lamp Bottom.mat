@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glass
+  m_Name: Lamp Bottom
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
@@ -95,7 +95,7 @@ Material:
     - _CameraDistanceFadeClose: 0
     - _CameraDistanceFadeFar: 10
     - _CelExtraEnabled: 1
-    - _CelNumSteps: 3
+    - _CelNumSteps: 8
     - _CelPrimaryMode: 0
     - _ContrastDetailMap: 0
     - _Cull: 2
@@ -138,9 +138,9 @@ Material:
     - _QueueOffset: 0
     - _RimEnabled: 0
     - _Saturation: 0
-    - _SelfShadingSize: 0.5
-    - _SelfShadingSizeExtra: 0.07
-    - _ShadowEdgeSize: 0.05
+    - _SelfShadingSize: 0.715
+    - _SelfShadingSizeExtra: 0.619
+    - _ShadowEdgeSize: 0.156
     - _ShadowEdgeSizeExtra: 0.5
     - _SmoothnessTextureChannel: 0
     - _Source: 0
@@ -166,11 +166,11 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.38495907, g: 0.53708774, b: 0.764151, a: 1}
+    - _Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
     - _ColorDim: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorDimExtra: {r: 0.40672836, g: 0.42807436, b: 0.4716981, a: 1}
-    - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _ColorDimCurve: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+    - _ColorDimExtra: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+    - _ColorDimSteps: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
     - _ColorGradient: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

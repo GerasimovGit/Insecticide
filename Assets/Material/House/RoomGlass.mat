@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glass
+  m_Name: RoomGlass
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
@@ -139,7 +139,7 @@ Material:
     - _RimEnabled: 0
     - _Saturation: 0
     - _SelfShadingSize: 0.5
-    - _SelfShadingSizeExtra: 0.07
+    - _SelfShadingSizeExtra: 0.206
     - _ShadowEdgeSize: 0.05
     - _ShadowEdgeSizeExtra: 0.5
     - _SmoothnessTextureChannel: 0
