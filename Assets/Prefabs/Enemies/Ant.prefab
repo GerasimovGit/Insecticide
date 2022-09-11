@@ -188,10 +188,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8608548640799246599}
-  - component: {fileID: 6173320851414447739}
   - component: {fileID: 1554181323766879727}
   - component: {fileID: 4784759401197761866}
   - component: {fileID: 7513719363196178100}
+  - component: {fileID: 4423464225785103696}
   m_Layer: 0
   m_Name: Ant
   m_TagString: Untagged
@@ -215,26 +215,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &6173320851414447739
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8952142087968691133}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c22069a07aa1bd439f615b65a417019, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1554181323766879727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,8 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad76998d63a1407b948b4119a2456d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _object: {fileID: 6529081124689256806}
-  _fadeInSpeed: 1
 --- !u!114 &4784759401197761866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _path: {fileID: 0}
   _speed: 0.4
-  _dieRotationSpeed: 1
 --- !u!114 &7513719363196178100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,3 +253,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f644d75bbbb4fb8b78762e72052aeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _easeType: 31
+  _hitDuration: 0.1
+  _hitTicksCount: 6
+  _dieBodyRotateDuration: 0.5
+--- !u!114 &4423464225785103696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952142087968691133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830e4b144a8447d38c3b6d7401edd12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer:
+  - {fileID: 6529081124689256806}
+  _colorChangeSpeed: 1
+  _targetColor: {r: 0.3, g: 0.1, b: 0, a: 1}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using ColliderBased;
 using UnityEngine;
 using Weapons;
 
@@ -7,73 +8,58 @@ namespace Hero
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon;
         [SerializeField] private CircleOverlap _circleOverlap;
+        [SerializeField] private Weapon _weapon;
         [SerializeField] private float _shootCooldown;
-        [SerializeField] private ParticleSystem[] _shootParticles;
-        [SerializeField] private ParticleSystem _wind;
-
-        private Coroutine _coroutine;
 
         private float _nextShootAttackTime;
+        private Coroutine _coroutine;
         private WaitForSeconds _waitForSeconds;
 
-        private void OnEnable()
-        {
-            _weapon.ResourceEnded += OnResourceEnded;
-        }
+        public bool IsAbleToSoot => _weapon.IsOutOfResource == false;
 
-        private void OnDisable()
-        {
-            _weapon.ResourceEnded -= OnResourceEnded;
-        }
+        public event Action ResourceEnded;
+        public event Action ResourceGained;
 
-        private void OnResourceEnded()
+        private void Start()
         {
-            foreach (var particle in _shootParticles)
-            {
-                particle.Stop();
-            }
-            
-            _wind.Play();
+            _waitForSeconds = new WaitForSeconds(_shootCooldown);
         }
 
         public void TrySoot()
         {
-            _waitForSeconds = new WaitForSeconds(_shootCooldown);
-
-            if (_weapon.IsOutOfResource)
-            {
-                if (_coroutine != null)
-                {
-                    StopCoroutine(_coroutine);
-                }
-
-                return;
-            }
-
             _coroutine = StartCoroutine(Shoot());
+        }
+
+        public void StopShoot()
+        {
+            StopCurrentCoroutine();
+        }
+
+        private void StopCurrentCoroutine()
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+            }
         }
 
         private IEnumerator Shoot()
         {
-            foreach (var particle in _shootParticles)
-            {
-                particle.Play();
-            }
-
             while (_weapon.IsOutOfResource == false)
             {
                 _circleOverlap.Check();
                 _weapon.Fire();
                 yield return _waitForSeconds;
             }
+
+            ResourceEnded?.Invoke();
         }
 
         public void AddResource()
         {
+            ResourceGained?.Invoke();
             _weapon.AddResource();
-            _wind.Stop();
         }
     }
 }

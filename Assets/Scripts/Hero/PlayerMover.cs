@@ -1,28 +1,26 @@
-using System;
 using GameInput;
 using UnityEngine;
-using Weapons;
 
 namespace Hero
 {
+    [RequireComponent(typeof(Player))]
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerMover : MonoBehaviour
     {
         [SerializeField] private CharacterController _characterController;
-        [SerializeField] private float _movementSpeed;
-        [SerializeField] private Weapon _weapon;
-        
-        private Animator _animator;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _speedWhenOutOfResource;
+
         private Camera _camera;
+        private Player _player;
         private PlayerInput _playerInput;
 
-        private bool _isMoving => _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
+        public bool IsMoving => _playerInput.Axis.sqrMagnitude > Constants.Epsilon;
 
         private void Awake()
         {
-
+            _player = GetComponent<Player>();
             _playerInput = GetComponent<PlayerInput>();
-            _animator = GetComponent<Animator>();
         }
 
         private void Start()
@@ -33,29 +31,44 @@ namespace Hero
         private void Update()
         {
             Move();
-            _animator.SetBool("isMoving", _isMoving);
         }
 
         private void Move()
         {
             Vector3 movementVector = Vector3.zero;
 
-            if (_isMoving)
+            if (IsMoving)
             {
-                movementVector = _camera.transform.TransformDirection(_playerInput.Axis);
-                movementVector.y = 0;
-                movementVector.Normalize();
-                transform.forward = movementVector;
+                movementVector = SetMovementVector();
+                RotateToDirection(movementVector);
             }
 
-            movementVector += Physics.gravity;
-
-            if (_weapon.IsOutOfResource)
+            if (_player.IsAbleToSoot)
             {
-                _characterController.Move(_movementSpeed * 0.35f * movementVector * Time.deltaTime);
+                SetMovementSpeed(movementVector, _speed);
             }
+            else
+            {
+                SetMovementSpeed(movementVector, _speedWhenOutOfResource);
+            }
+        }
 
-            _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+        private Vector3 SetMovementVector()
+        {
+            Vector3 movementVector = _camera.transform.TransformDirection(_playerInput.Axis);
+            movementVector.y = 0;
+            movementVector.Normalize();
+            return movementVector;
+        }
+
+        private void RotateToDirection(Vector3 movementVector)
+        {
+            transform.forward = movementVector;
+        }
+
+        private void SetMovementSpeed(Vector3 movementVector, float speed)
+        {
+            _characterController.Move(speed * movementVector * Time.deltaTime);
         }
     }
 }

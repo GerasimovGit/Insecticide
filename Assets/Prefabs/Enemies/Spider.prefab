@@ -1528,10 +1528,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6409815668360442491}
-  - component: {fileID: 6034803500606236877}
   - component: {fileID: 6034803500606236878}
   - component: {fileID: 6034803500606236879}
   - component: {fileID: 6034803500606236864}
+  - component: {fileID: 6534549171580132312}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -1560,26 +1560,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!95 &6034803500606236877
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034803500606236865}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 90e12e0d8b8cc664ca32e78a98e35981, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6034803500606236878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,8 +1572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad76998d63a1407b948b4119a2456d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _object: {fileID: 9082235411882154382}
-  _fadeInSpeed: 1
 --- !u!114 &6034803500606236879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,7 +1586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _path: {fileID: 0}
   _speed: 0.4
-  _dieRotationSpeed: 0.25
 --- !u!114 &6034803500606236864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1621,6 +1598,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f644d75bbbb4fb8b78762e72052aeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _easeType: 31
+  _hitDuration: 0.1
+  _hitTicksCount: 6
+  _dieBodyRotateDuration: 0.5
+--- !u!114 &6534549171580132312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034803500606236865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830e4b144a8447d38c3b6d7401edd12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer:
+  - {fileID: 9082235411882154382}
+  _colorChangeSpeed: 1
+  _targetColor: {r: 0.3, g: 0.1, b: 0, a: 1}
 --- !u!1 &6161392435765330222
 GameObject:
   m_ObjectHideFlags: 0

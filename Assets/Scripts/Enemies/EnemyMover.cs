@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemies
 {
@@ -8,8 +7,6 @@ namespace Enemies
     {
         [SerializeField] private Transform _path;
         [SerializeField] private float _speed;
-        //[SerializeField] private float _rotationSpeed;
-        [SerializeField] private float _dieRotationSpeed;
 
         private int _currentPoint;
         private Vector3 _direction;
@@ -52,29 +49,6 @@ namespace Enemies
         private void OnDie()
         {
             _isDead = true;
-            StartCoroutine(RotateOnDie());
-        }
-
-        private IEnumerator RotateOnDie()
-        {
-            Quaternion startRotation = transform.rotation;
-            Vector3 startPosition = transform.position;
-            Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 0, 180);
-
-            Vector3 targetPosition =
-                new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
-            float timeElapsed = 0;
-
-            while (timeElapsed < _dieRotationSpeed)
-            {
-                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / _dieRotationSpeed);
-                transform.position = Vector3.Slerp(startPosition, targetPosition, timeElapsed / _dieRotationSpeed);
-                timeElapsed += Time.deltaTime;
-                yield return null;
-            }
-
-            transform.rotation = targetRotation;
-            transform.position = targetPosition;
         }
 
         private int GetRandomPoint()
@@ -112,11 +86,10 @@ namespace Enemies
 
         private void RotateToDirection()
         {
-            if (!_isMoving) return;
+            if (_isMoving == false) return;
 
             _rotation = Quaternion.LookRotation(_direction);
-           // transform.rotation = Quaternion.Slerp(transform.rotation, _rotation, Time.deltaTime * _rotationSpeed);
-           transform.rotation = _rotation;
+            transform.rotation = _rotation;
         }
     }
 }

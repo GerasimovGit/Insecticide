@@ -1,32 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Weapons
 {
     public class Weapon : MonoBehaviour
     {
+        private const float MAXResourceValue = 10;
+
         [SerializeField] private float _resource;
         [SerializeField] private float _resourceLoseSpeed;
 
-        private float _maxResourceValue = 10;
-
-        public event Action ResourceEnded;
-        
         public bool IsOutOfResource => _resource <= 0;
 
         public void Fire()
         {
-            _resource -= _resourceLoseSpeed * Time.deltaTime;
+            if (IsOutOfResource) return;
 
-            if (IsOutOfResource)
-            {
-                ResourceEnded?.Invoke();
-            }
+            _resource -= _resourceLoseSpeed * Time.deltaTime;
         }
 
         public void AddResource()
         {
-            _resource = _maxResourceValue;
+            _resource = MAXResourceValue;
         }
     }
 }
