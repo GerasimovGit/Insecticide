@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EmptyBagArea : MonoBehaviour
 {
-    public event Action ResourceAdded;
-    private void OnTriggerStay(Collider other)
+    [SerializeField] private Coin _coin;
+    public event Action EnteredChargeArea;
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
             player.AddResource();
-            ResourceAdded?.Invoke();
+            EnteredChargeArea?.Invoke();
+            _coin.AddCoins(transform.position,3);
         }
     }
 }

@@ -21,13 +21,13 @@ public class EmptyBagText : MonoBehaviour
     private void OnEnable()
     {
         _weapon.ResourceEnded += OnResourceEnded;
-        _emptyBagArea.ResourceAdded += OnResourceFull;
+        _emptyBagArea.EnteredChargeArea += OnResourceFull;
     }
 
     private void OnDisable()
     {
         _weapon.ResourceEnded -= OnResourceEnded;
-        _emptyBagArea.ResourceAdded -= OnResourceFull;
+        _emptyBagArea.EnteredChargeArea -= OnResourceFull;
     }
 
     private void OnResourceFull()
