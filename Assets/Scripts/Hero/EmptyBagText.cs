@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
@@ -9,14 +8,14 @@ namespace Hero
     public class EmptyBagText : MonoBehaviour
     {
         private readonly Vector3 _targetScale = Vector3.zero;
-    
+        
+        [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private Player _player;
         [SerializeField] private float _changeScaleDuration;
 
         private Coroutine _coroutine;
         private Vector3 _defaultScale;
-       [SerializeField] private CinemachineVirtualCamera _camera;
 
         private void Start()
         {
@@ -40,7 +39,7 @@ namespace Hero
         {
             ChangeScale(_targetScale);
         }
-    
+
         private void ChangeScale(Vector3 targetScale)
         {
             transform.DOScale(targetScale, _changeScaleDuration)
@@ -50,10 +49,10 @@ namespace Hero
         private void OnResourceEnded()
         {
             ChangeScale(_defaultScale);
-            StartCoroutine(Look());
+            StartCoroutine(LookAtCamera());
         }
 
-        private IEnumerator Look()
+        private IEnumerator LookAtCamera()
         {
             while (_player.IsAbleToSoot == false)
             {
