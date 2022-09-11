@@ -43,6 +43,8 @@ namespace Hero
                 RotateToDirection(movementVector);
             }
 
+            movementVector += Physics.gravity;
+
             if (_player.IsAbleToSoot)
             {
                 SetMovementSpeed(movementVector, _speed);

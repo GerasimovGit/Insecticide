@@ -89,8 +89,6 @@ MonoBehaviour:
   - {fileID: 78323036749943223}
   - {fileID: 8230804511317329377}
   - {fileID: 2633426451175536478}
-  _emoji: {fileID: 8855536316139899577}
-  _clouds: {fileID: 2960546182462602592}
 --- !u!65 &5100497357494030132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -102,7 +100,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.48, y: 1, z: 1.48}
   m_Center: {x: 0, y: 0.91, z: -3.95}
 --- !u!114 &346470005785690244
 MonoBehaviour:

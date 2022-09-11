@@ -1,4 +1,7 @@
-﻿using DG.Tweening;
+﻿using System.Collections;
+using System.Linq;
+using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Hero
@@ -13,6 +16,7 @@ namespace Hero
 
         private Coroutine _coroutine;
         private Vector3 _defaultScale;
+       [SerializeField] private CinemachineVirtualCamera _camera;
 
         private void Start()
         {
@@ -46,6 +50,16 @@ namespace Hero
         private void OnResourceEnded()
         {
             ChangeScale(_defaultScale);
+            StartCoroutine(Look());
+        }
+
+        private IEnumerator Look()
+        {
+            while (_player.IsAbleToSoot == false)
+            {
+                transform.LookAt(_camera.transform.position);
+                yield return null;
+            }
         }
     }
 }
