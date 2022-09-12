@@ -9,10 +9,10 @@ namespace Enemies
         [SerializeField] private float _speed;
 
         private int _currentPoint;
-        private Vector3 _direction;
-        private Enemy _enemy;
         private bool _isDead;
+        private Enemy _enemy;
         private Transform[] _points;
+        private Vector3 _direction;
         private Quaternion _rotation;
 
         private bool _isMoving => _direction.magnitude > Constants.Epsilon;

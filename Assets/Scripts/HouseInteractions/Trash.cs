@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace HouseInteracions
+namespace HouseInteractions
 {
     public class Trash : MonoBehaviour
     {

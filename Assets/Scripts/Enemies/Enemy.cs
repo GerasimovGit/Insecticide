@@ -5,12 +5,12 @@ namespace Enemies
 {
     public class Enemy : MonoBehaviour
     {
-        public event Action DamageTaken;
+        public event Action DamageTake;
         public event Action Died;
 
         public void TakeDamage()
         {
-            DamageTaken?.Invoke();
+            DamageTake?.Invoke();
         }
 
         public void Die()

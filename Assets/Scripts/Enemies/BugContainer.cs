@@ -9,7 +9,8 @@ namespace Enemies
     {
         private readonly string _emojiId = "Emoji";
         private readonly string _cloudsId = "Clouds";
-    
+        private readonly WaitForSeconds _delay = new (1.5f);
+
         [SerializeField] private Enemy[] _enemies;
 
         private ParticlesEffects _particles;
@@ -45,7 +46,7 @@ namespace Enemies
 
         private IEnumerator HideAfterDelay()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return _delay;
         
             foreach (var enemy in _enemies)
             {

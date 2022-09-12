@@ -7,14 +7,14 @@ namespace Coins
 {
     public class Coin : MonoBehaviour
     {
+        private readonly Queue<GameObject> _coinsQueue = new();
+        
         [SerializeField] private GameObject _coin;
         [SerializeField] private Transform _target;
         [SerializeField] private int _maxCoins;
         [SerializeField] private float _animationDuration;
         [SerializeField] private Ease _easeType;
         [SerializeField] private Camera _camera;
-        
-        private readonly Queue<GameObject> _coinsQueue = new();
 
         private Vector3 _targetPosition;
 

@@ -36,13 +36,13 @@ namespace Hero
             _player.ResourceGained -= OnResourceGained;
         }
 
-        private void PlayShootEffect(bool obj)
+        private void PlayShootEffect(bool isEnteredToClearZone)
         {
-            if (_player.IsAbleToSoot && obj)
+            if (_player.IsAbleToSoot && isEnteredToClearZone)
             {
                 _particles.Play(_shootId);
             }
-            else if (!_player.IsAbleToSoot || obj == false)
+            else if (!_player.IsAbleToSoot || isEnteredToClearZone == false)
             {
                 _particles.Stop(_shootId);
             }

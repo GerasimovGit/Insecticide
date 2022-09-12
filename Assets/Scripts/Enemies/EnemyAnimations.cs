@@ -37,13 +37,13 @@ namespace Enemies
 
         private void OnEnable()
         {
-            _enemy.DamageTaken += OnDamageTaken;
+            _enemy.DamageTake += OnDamageTake;
             _enemy.Died += OnDie;
         }
 
         private void OnDisable()
         {
-            _enemy.DamageTaken -= OnDamageTaken;
+            _enemy.DamageTake -= OnDamageTake;
             _enemy.Died -= OnDie;
         }
 
@@ -75,7 +75,7 @@ namespace Enemies
             return transform.rotation * Quaternion.Euler(0, 0, DieRotationAngleZ);
         }
 
-        private void OnDamageTaken()
+        private void OnDamageTake()
         {
             ChangeScale();
         }

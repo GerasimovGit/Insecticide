@@ -2,12 +2,12 @@ using System.Collections;
 using Hero;
 using UnityEngine;
 
-namespace HouseInteracions
+namespace HouseInteractions
 {
     public class Door : MonoBehaviour
     {
         private bool _isOpen;
-        private readonly float lerpDuration = 0.4f;
+        private readonly float _lerpDuration = 0.4f;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -26,9 +26,9 @@ namespace HouseInteracions
             Quaternion startRotation = transform.rotation;
             Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, -95, 0);
 
-            while (timeElapsed < lerpDuration)
+            while (timeElapsed < _lerpDuration)
             {
-                transform.rotation = Quaternion.Lerp(startRotation, targetRotation, timeElapsed / lerpDuration);
+                transform.rotation = Quaternion.Lerp(startRotation, targetRotation, timeElapsed / _lerpDuration);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }

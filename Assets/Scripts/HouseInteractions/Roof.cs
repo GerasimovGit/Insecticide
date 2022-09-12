@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zones;
 
-namespace HouseInteracions
+namespace HouseInteractions
 {
     public class Roof : MonoBehaviour
     {
@@ -17,11 +17,11 @@ namespace HouseInteracions
             _cleaningZone.PlayerEntered -= ChangeVisibility;
         }
 
-        private void ChangeVisibility(bool action)
+        private void ChangeVisibility(bool isPlayerEntered)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(action != true);
+                transform.GetChild(i).gameObject.SetActive(isPlayerEntered != true);
             }
         }
     }
